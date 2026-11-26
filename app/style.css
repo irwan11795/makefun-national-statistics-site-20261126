@@ -1,0 +1,141 @@
+/* Statistik Nusantara — design system.
+   Warm paper background, deep teal ink, amber accent. System fonts only:
+   nothing is loaded from the network. Layout is a single column on phones
+   and two columns on desktop. */
+
+:root {
+  --paper: #f6f4ec;
+  --card: #fffdf7;
+  --ink: #14292e;
+  --muted: #5d7076;
+  --line: #dbe4e4;
+  --teal: #0e7c7b;
+  --teal-dark: #0b4f4a;
+  --teal-ink: #12333a;
+  --amber: #e8a13a;
+  --red: #c0392b;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.site-header { background: var(--teal-dark); color: #f2f7f4; }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding-top: 14px; padding-bottom: 14px; }
+.brand { display: flex; align-items: center; gap: 12px; margin-right: auto; }
+.brand-mark {
+  margin: 0; width: 44px; height: 44px; border-radius: 10px;
+  background: var(--amber); color: var(--teal-ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 19px;
+}
+.brand-name { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 700; line-height: 1.1; }
+.brand-tag { margin: 2px 0 0; font-size: 13px; color: #bcd4cf; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 4px; }
+.site-nav a {
+  color: #dcebe6; text-decoration: none; font-size: 14px; font-weight: 600;
+  padding: 7px 11px; border-radius: 999px; white-space: nowrap;
+}
+.site-nav a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.site-nav a[aria-current="page"] { background: var(--amber); color: var(--teal-ink); }
+
+/* Page */
+main { padding-top: 20px; padding-bottom: 40px; }
+.eyebrow { margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
+h1 { margin: 0 0 10px; font-family: Georgia, "Times New Roman", serif; font-size: 38px; line-height: 1.12; color: var(--teal-ink); }
+.lede { margin: 0 0 24px; font-size: 17.5px; color: #33474c; max-width: 72ch; }
+h2 { margin: 0 0 6px; font-family: Georgia, "Times New Roman", serif; font-size: 21px; color: var(--teal-ink); }
+p { margin: 0 0 12px; }
+a { color: var(--teal); }
+a:hover { color: var(--teal-dark); }
+
+/* KPI cards */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+.kpi {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px 15px 12px; box-shadow: 0 1px 2px rgba(18, 51, 58, 0.06);
+}
+.kpi-label { margin: 0 0 2px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.kpi-value { margin: 0; font-size: 27px; font-weight: 800; line-height: 1.15; color: var(--teal-dark); letter-spacing: -0.01em; }
+.kpi-sub { margin: 3px 0 0; font-size: 12.5px; color: var(--muted); }
+.kpi-note { margin: 6px 0 0; font-size: 13px; color: #33474c; }
+
+/* Layout grids */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 18px 20px; margin-bottom: 16px; box-shadow: 0 1px 2px rgba(18, 51, 58, 0.06);
+}
+.grid-2 .card { margin-bottom: 0; }
+.card-sub { font-size: 14px; color: var(--muted); }
+.source { margin: 10px 0 0; font-size: 12.5px; color: var(--muted); }
+.card-links { margin-top: 14px; font-size: 14.5px; }
+
+/* Tables */
+table.facts { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.facts th, table.facts td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.facts thead th { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+table.facts td.num, table.facts th.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.facts th { font-weight: 600; }
+table.facts tr:last-child th, table.facts tr:last-child td { border-bottom: 0; }
+table.facts .muted { color: var(--muted); font-size: 13px; }
+table.sortable th[data-sort] { cursor: pointer; }
+table.sortable th[data-sort]:hover { color: var(--teal); }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+.controls-label { font-size: 14px; font-weight: 700; color: var(--teal-ink); }
+.chip {
+  border: 1.5px solid var(--teal); background: transparent; color: var(--teal-dark);
+  font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+}
+.chip:hover { background: #e3efec; }
+.chip.active { background: var(--teal); color: #fff; }
+.chip.big { font-size: 15px; padding: 9px 18px; }
+select, input[type="search"] {
+  font: inherit; font-size: 15px; padding: 8px 10px; border: 1.5px solid #b9c9c9;
+  border-radius: 8px; background: #fff; color: var(--ink); max-width: 100%;
+}
+select:focus, input[type="search"]:focus { outline: 2px solid var(--teal); outline-offset: 1px; border-color: var(--teal); }
+.year-note { font-size: 14.5px; color: #33474c; flex: 1 1 260px; }
+.result-count { font-size: 13.5px; color: var(--muted); }
+.field { display: block; margin: 4px 0 10px; }
+.field span { display: block; font-size: 13.5px; font-weight: 700; margin-bottom: 4px; }
+.field input { width: 100%; }
+
+/* Charts */
+svg { display: block; max-width: 100%; height: auto; }
+.donut-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.legend { display: grid; gap: 6px; font-size: 14px; flex: 1 1 180px; }
+.legend-row { display: flex; align-items: center; gap: 8px; }
+.legend-row strong { margin-left: auto; font-variant-numeric: tabular-nums; }
+.swatch { width: 13px; height: 13px; border-radius: 4px; flex: none; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding: 22px 0 30px; font-size: 13.5px; color: var(--muted); }
+.site-footer p { margin: 0 0 8px; }
+
+/* Phones */
+@media (max-width: 760px) {
+  h1 { font-size: 29px; }
+  .lede { font-size: 16px; }
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .kpi-value { font-size: 22px; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .site-nav a { padding: 6px 9px; font-size: 13.5px; }
+  .card { padding: 15px 16px; }
+  table.facts { font-size: 13.5px; }
+  table.facts th, table.facts td { padding: 7px 4px; }
+}
